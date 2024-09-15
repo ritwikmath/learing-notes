@@ -29,7 +29,7 @@ exists tech framework
 ```
 Out put is same as delete
 
-**Key Expiration :**
+**Key Expiration:**
 ```bash
 # ex set expiry to seconds
 set framework flsk ex 10
@@ -38,20 +38,20 @@ set framework flsk ex 10
 set framework flsk px 10000
 ```
 
-**Remove Expiration :**
+**Remove Expiration:**
 ```bash
 persist framework
 ```
  Output is 1 if key is set to be expired or output is 0.
 
-**Key Spaces :**
+**Key Spaces:**
 ```bash
 # Default is 0.
 select 1
 ```
  Keys in different spaces are separated.
 
-**Key Search Pattern :**
+**Key Search Pattern:**
 ```bash
 # Sample keys
 set user:101:name Ritwik
@@ -76,7 +76,7 @@ keys user:10?:location
 keys user:10[1-9]:location
 ```
 
-**Save Information :**
+**Save Information:**
 ```bash
 shutdown save
 
@@ -84,7 +84,7 @@ shutdown save
 shutdown nosave
 ```
 
-**Rename a Key :**
+**Rename a Key:**
 ```bash
 # Existing key-value is name => Ritwik, first_name => ritwik
 rename name first_name
