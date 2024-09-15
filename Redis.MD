@@ -141,3 +141,111 @@ msetnx name Ritwik profession Salaried
 msetnx profession Salaried location Kolkata
 ```
 
+**Numeric Operations**
+```bash
+# Set integer value as string
+set value 0
+
+# Increaase integer value by 1
+incr value
+
+# Decreaase integer value by 1
+decr value
+
+# Increaase integer value by specific value
+incrby value 10
+
+# Decreaase integer value by specific value
+decrby value 10
+
+# Set floating point number
+set float 2.5
+
+# Increaase floating point value by specific value
+incrbyfloat value 1
+
+# Decreaase floating point value by specific value
+incrbyfloat value -1
+```
+
+To decrease floating point number use negative value with `incrbyfloat`.
+
+**Getset:**
+```bash
+# Get old value and then reset the key
+getset value 0
+
+# Outut => 8. 8 is the old value
+```
+
+Getset can be used for atomic reset.
+```bash
+# Set a integer value
+set atomic 10
+
+# Do dome increase/decrease operations
+incr atomic
+incr atomic
+incr atomic
+
+# Reset the value
+getset atomic 10
+# Output => 13
+```
+
+**String length:**
+```bash
+strlen website
+```
+
+**Set String with Caution:**
+```bash
+# Set a key
+set value 0
+
+# Set key only if it does not exist
+setnx value 10
+```
+
+**Sub-string:**
+```bash
+# Set a value
+set website https://www.udemy.com
+
+# Unlike python the end character is also returned
+getrange website 0 10
+# Output => "https://www"
+```
+Position starts from 0. From last count starts from -1. The start index should always be less than end index or it will return empty string.
+
+**Update String:**
+```bash
+# String characters will be updated starting from mentioned offset
+setrange website 12 "idemi"
+```
+If the strlen of value > (strlen of key - offset), then value will replace all the characters from offset and new string will be greater in length. Otherwise, value will replace all the characters that is positioned in range of offset, offset + strlen of value.
+
+**String Encoding Types:**
+```bashh
+set et 1
+
+object encoding et
+# Output => int
+
+# String length less than 39
+set et "Hello developers!"
+object encoding et
+# Output => embstr
+
+# String length greater than 39
+set et "Hello developers! I am a software developer. I love coding."
+object encoding et
+# Output => raw
+```
+
+**Store JSON:**
+```bash
+set json '{"name": "Ritwik Math", "age": 32}'
+
+# Output => "{\"name\": \"Ritwik Math\", \"age\": 32}"
+```
