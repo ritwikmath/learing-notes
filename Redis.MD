@@ -249,3 +249,71 @@ set json '{"name": "Ritwik Math", "age": 32}'
 
 # Output => "{\"name\": \"Ritwik Math\", \"age\": 32}"
 ```
+
+# Redis Lists
+
+**Create a List:**
+```bash
+# Create a list with passed elements
+lpush nums 1
+
+# With multiple elements
+lpush nums 1 2 3
+
+# Using rpush
+rpush nums 1
+```
+
+**Delete a List**
+```bash
+del nums
+```
+
+**Insert Element at Start:**
+```bash
+# Create a list called nums using lpush or rpush
+lpush nums 0
+```
+
+**Insert Element at End:**
+```bash
+# Create a list called nums using lpush or rpush
+rpush nums 2
+```
+
+**Insert after Specific Element:**
+```bash
+# Contents of nums 0, 1, 2
+# after or before the existing element
+linsert nums after 2 3
+# Updated contents of nums 0, 1, 2, 3
+linsert nums before 3 4
+# Updated contents of nums 0, 1, 2, 4, 3
+```
+
+**Fetch Contents of Lists:**
+```bash
+# To get all elements use 0 as start and -1 as end
+lrange nums 0 -1
+```
+
+**Fetch Element from Index:**
+```bash
+lindex nums 2
+# Output => 2
+```
+
+**Remove Element from List:**
+```bash
+# From start
+lpop nums
+# Updated contents of nums 1, 2, 4, 3
+
+# From end
+rpop nums
+# Updated contents of nums 1, 2, 4
+
+# With count
+rpop nums 2
+# Updated contents of nums 1
+```
